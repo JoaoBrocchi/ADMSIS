@@ -1,8 +1,9 @@
 import { DataTypes } from "sequelize";
-import db from "../db/connection";
+import db from "../db/connection.js";
+import ContaBancaria from "./ContaModel.js";
+import Cliente from "./ClienteModel.js";
 
-
-const HistoricoInteracao = sequelize.define('HistoricoInteracao', {
+const HistoricoInteracao = db.define('HistoricoInteracao', {
     dataHoraInteracao: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,

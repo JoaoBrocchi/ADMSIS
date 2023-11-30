@@ -1,7 +1,7 @@
-import Cliente from "../models/ClienteModel"
+import Cliente from "../models/ClienteModel.js"
 
 class ClientController {
-    async getAllClients(req, res) {
+    static async getAllClients(req, res) {
       try {
         const clients = await Cliente.findAll();
         return res.status(200).json(clients);
@@ -11,7 +11,7 @@ class ClientController {
       }
     }
   
-    async getClientById(req, res) {
+    static async getClientById(req, res) {
       const { clientId } = req.params;
       try {
         const client = await Cliente.findByPk(clientId);
@@ -25,11 +25,11 @@ class ClientController {
       }
     }
   
-    async createClient(req, res) {
-      const { nome, cpfcnpj, endereco, telefone, email, dataNascimento, tipoCliente } = req.body;
+    static async createClient(req, res) {
+      const { Nome, cpfcnpj, endereco, telefone, email, dataNascimento, tipoCliente } = req.body;
       try {
         const newClient = await Cliente.create({
-          nome,
+          Nome,
           cpfcnpj,
           endereco,
           telefone,
@@ -44,7 +44,7 @@ class ClientController {
       }
     }
   
-    async updateClient(req, res) {
+    static async updateClient(req, res) {
       const { clientId } = req.params;
       const { nome, cpfcnpj, endereco, telefone, email, dataNascimento, tipoCliente } = req.body;
       try {
@@ -68,7 +68,7 @@ class ClientController {
       }
     }
   
-    async deleteClient(req, res) {
+    static async deleteClient(req, res) {
       const { clientId } = req.params;
       try {
         const client = await Cliente.findByPk(clientId);
@@ -83,3 +83,4 @@ class ClientController {
       }
     }
   }
+export default ClientController;

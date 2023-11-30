@@ -1,8 +1,9 @@
 
 import { DataTypes } from "sequelize";
-import db from "../db/connection";
-
-const Transacao = sequelize.define('Transacao', {
+import db from "../db/connection.js";
+import ContaBancaria from "./ContaModel.js";
+import Cliente from "./ClienteModel.js";
+const Transacao = db.define('Transacao', {
     valor: {
       type: DataTypes.DECIMAL(15, 2),
       allowNull: false,

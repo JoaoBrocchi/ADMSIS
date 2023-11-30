@@ -1,8 +1,8 @@
-import Transacao from "../models/TransationsModel" 
-import ContaBancaria from "./ContaController";
+import Transacao from "../models/TransationsModel.js" 
+import ContaBancaria from "./ContaController.js";
 
 class FinancialTransactionController {
-  async deposit(req, res) {
+  static async deposit(req, res) {
     const { accountId, valor } = req.body;
 
     try {
@@ -29,7 +29,7 @@ class FinancialTransactionController {
     }
   }
 
-  async withdraw(req, res) {
+  static async withdraw(req, res) {
     const { accountId, valor } = req.body;
 
     try {

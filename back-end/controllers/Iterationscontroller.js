@@ -1,6 +1,7 @@
-import  HistoricoInteracao from "../models/IterationsHistory"
+import  HistoricoInteracao from "../models/IterationsHistory.js"
+
 class HistoricoInteracaoController {
-    async getAllInteractions(req, res) {
+    static async getAllInteractions(req, res) {
       try {
         const interacoes = await HistoricoInteracao.findAll();
         return res.status(200).json(interacoes);
@@ -10,7 +11,7 @@ class HistoricoInteracaoController {
       }
     }
   
-    async getInteractionById(req, res) {
+    static async getInteractionById(req, res) {
       const { interactionId } = req.params;
       try {
         const interacao = await HistoricoInteracao.findByPk(interactionId, {
@@ -28,3 +29,4 @@ class HistoricoInteracaoController {
   
     // Outros métodos conforme necessário
   }
+export default HistoricoInteracao;

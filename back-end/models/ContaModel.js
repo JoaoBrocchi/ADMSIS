@@ -1,7 +1,9 @@
 import { DataTypes } from "sequelize";
-import db from "../db/connection";
+import db from "../db/connection.js";
+import Cliente from "./ClienteModel.js";
 
-const ContaBancaria = sequelize.define('ContaBancaria', {
+
+const ContaBancaria = db.define('ContaBancaria', {
     numeroConta: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,4 +25,6 @@ const ContaBancaria = sequelize.define('ContaBancaria', {
   });
 Cliente.hasMany(ContaBancaria);
 ContaBancaria.belongsTo(Cliente);
+
+
 export default ContaBancaria
