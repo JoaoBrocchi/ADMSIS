@@ -1,6 +1,8 @@
-import Transacao from "../models/TransationsModel"
+import Transacao from "../models/TransationsModel.js"
+
+
 class TransacaoController {
-    async getAllTransactions(req, res) {
+    static async getAllTransactions(req, res) {
       try {
         const transacoes = await Transacao.findAll();
         return res.status(200).json(transacoes);
@@ -10,7 +12,7 @@ class TransacaoController {
       }
     }
   
-    async getTransactionById(req, res) {
+    static async getTransactionById(req, res) {
       const { transactionId } = req.params;
       try {
         const transacao = await Transacao.findByPk(transactionId, {
@@ -31,3 +33,5 @@ class TransacaoController {
   
     // Outros métodos conforme necessário
   }
+
+export default TransacaoController;

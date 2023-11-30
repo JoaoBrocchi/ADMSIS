@@ -1,8 +1,8 @@
 import express from 'express';
-import  transacaoController from "../controllers/Iterationscontroller"
+import  historicoController from "../controllers/Iterationscontroller.js"
 const router = express.Router();
 
-router.get('/historico', historicoController.getAllInteractions);
-router.get('/historico/:interactionId', historicoController.getInteractionById);
+// router.get('/historico', historicoController.getAllInteractions);
+// router.get('/historico/:interactionId', historicoController.getInteractionById);
 
 export default router;

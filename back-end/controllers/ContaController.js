@@ -1,7 +1,8 @@
-import ContaBancaria from "../models/ContaModel"
-import Cliente from "../models/ClienteModel"
+import ContaBancaria from "../models/ContaModel.js"
+import Cliente from "../models/ClienteModel.js"
+
 class ContaBancariaController {
-    async getAllAccounts(req, res) {
+    static async getAllAccounts(req, res) {
       try {
         const contas = await ContaBancaria.findAll();
         return res.status(200).json(contas);
@@ -10,8 +11,8 @@ class ContaBancariaController {
         return res.status(500).json({ error: 'Erro interno do servidor' });
       }
     }
-  
-    async getAccountById(req, res) {
+    
+    static async getAccountById(req, res) {
       const { accountId } = req.params;
       try {
         const conta = await ContaBancaria.findByPk(accountId, {
@@ -27,4 +28,4 @@ class ContaBancariaController {
       }
     }
 }
-export default ContaBancaria
+export default ContaBancariaController;

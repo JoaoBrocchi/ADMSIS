@@ -1,21 +1,23 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './routes.js';
-import ClienteRouter from "./routes/ClienteRoute"
+import ClienteRouter from "./routes/ClienteRoute.js"
 import ContaRouter from "./routes/ContaRoute.js"
 import FinancialTransationsRouter from "./routes/FInancialTransitionController.js"
 import IterationsRouter from "./routes/IterationRoutes.js"
 import HistoryTransationsRouter from "./routes/TransationsRoute.js"
+import sequelize from './db/connection.js';
 
 const dotenvModule = await import("dotenv");
 const dotenv = dotenvModule.default;
 const app = express();
 const PORT = process.env.PORT
+
 app.use(bodyParser.json());
-
-
-
-
+app.use("/",ClienteRouter)
+app.use("/",ContaRouter)
+app.use("/",FinancialTransationsRouter)
+app.use("/",IterationsRouter)
+app.use("/",HistoryTransationsRouter)
 
 
 
@@ -28,10 +30,11 @@ app.listen(PORT,(req,res)=>{
   .catch((error) => {
     console.error('Erro ao conectar-se ao banco de dados:', error);
   })
-  .finally(() => {
-    // Fechar a conexão após os testes
-    sequelize.close();
-  });
+  
 })
+
+
+
+
 
 
