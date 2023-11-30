@@ -1,10 +1,25 @@
-import  Express  from "express";
-import sequelize from "./db/connection.js"
+import express from 'express';
+import bodyParser from 'body-parser';
+import routes from './routes.js';
+import ClienteRouter from "./routes/ClienteRoute"
+import ContaRouter from "./routes/ContaRoute.js"
+import FinancialTransationsRouter from "./routes/FInancialTransitionController.js"
+import IterationsRouter from "./routes/IterationRoutes.js"
+import HistoryTransationsRouter from "./routes/TransationsRoute.js"
 
-const app = Express()
+const dotenvModule = await import("dotenv");
+const dotenv = dotenvModule.default;
+const app = express();
+const PORT = process.env.PORT
+app.use(bodyParser.json());
 
 
-app.listen(3000,(req,res)=>{
+
+
+
+
+
+app.listen(PORT,(req,res)=>{
     sequelize
   .authenticate()
   .then(() => {
