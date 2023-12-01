@@ -26,16 +26,16 @@ class ClientController {
     }
   
     static async createClient(req, res) {
-      const { Nome, cpfcnpj, endereco, telefone, email, dataNascimento, tipoCliente } = req.body;
+      const { Nome, CPFCNPJ, Endereco, Telefone, Email, DataNascimento, TipoCliente } = req.body;
       try {
         const newClient = await Cliente.create({
           Nome,
-          cpfcnpj,
-          endereco,
-          telefone,
-          email,
-          dataNascimento,
-          tipoCliente,
+          CPFCNPJ,
+          Endereco,
+          Telefone,
+          Email,
+          DataNascimento,
+          TipoCliente,
         });
         return res.status(201).json(newClient);
       } catch (error) {
@@ -46,20 +46,20 @@ class ClientController {
   
     static async updateClient(req, res) {
       const { clientId } = req.params;
-      const { nome, cpfcnpj, endereco, telefone, email, dataNascimento, tipoCliente } = req.body;
+      const { Nome, CPFCNPJ, Endereco, Telefone, Email, DataNascimento, TipoCliente } = req.body;
       try {
         const client = await Cliente.findByPk(clientId);
         if (!client) {
           return res.status(404).json({ error: 'Cliente não encontrado' });
         }
         await client.update({
-          nome,
-          cpfcnpj,
-          endereco,
-          telefone,
-          email,
-          dataNascimento,
-          tipoCliente,
+          Nome,
+          CPFCNPJ,
+          Endereco,
+          Telefone,
+          Email,
+          DataNascimento,
+          TipoCliente,
         });
         return res.status(200).json(client);
       } catch (error) {

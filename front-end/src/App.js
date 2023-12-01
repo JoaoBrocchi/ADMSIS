@@ -11,8 +11,8 @@ function App() {
       <Container>
         <Routes>
           
-          <Route path="/loginuser" element={<Form/>} />
-          <Route path="/registeruser" element={<RegisterForm/>} />
+          <Route path="/login" element={<Form/>} />
+          <Route path="/register" element={<RegisterForm/>} />
         </Routes>
       </Container>
     </Router>
