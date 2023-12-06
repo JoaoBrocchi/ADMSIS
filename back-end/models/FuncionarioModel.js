@@ -41,6 +41,10 @@ const Funcionario = db.define('Funcionario', {
   Password: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  Cargo :{
+    type: String,
+    allowNull: true,
   }
 }, {
   tableName: 'Funcionarios',

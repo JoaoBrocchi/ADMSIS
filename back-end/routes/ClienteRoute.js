@@ -1,9 +1,9 @@
 import express from 'express';
 import clientController from '../controllers/ClienteController.js';
-
+import verifyToken from "../helpers/verifyToken.js"
 const router = express.Router();
-
-router.route('/clientes')
+router.use(verifyToken);
+router.route(verifyToken,'/clientes')
   .get(clientController.getAllClients)
   .post(clientController.createClient);
 
