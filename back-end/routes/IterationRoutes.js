@@ -5,4 +5,5 @@ const router = express.Router();
 // router.get('/historico', historicoController.getAllInteractions);
 // router.get('/historico/:interactionId', historicoController.getInteractionById);
 
+
 export default router;
